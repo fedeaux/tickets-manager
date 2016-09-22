@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  socket: /tmp/mysql.sock
+  port: 3306
+
+development:
+  <<: *default
+  database: <%= ENV['DEVELOPMENT_DATABASE'] %>
+  password: <%= ENV['DEVELOPMENT_DATABASE_PASSWORD'] %>
+
+test:
+  <<: *default
+  database: <%= ENV['TEST_DATABASE'] %>
+  password: <%= ENV['TEST_DATABASE_PASSWORD'] %>
+
+production:
+  <<: *default
+  database: <%= ENV['PRODUCTION_DATABASE'] %>
+  username: <%= ENV['PRODUCTION_DATABASE_PASSWORD_USER'] %>
+  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
