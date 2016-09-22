@@ -15,3 +15,10 @@ angular.module('TicketsApp')
     template: '<ui-view/>'
   ).state('app.tickets', tickets)
   .state('app.stickets', tickets_with_slash)
+  .state('app.new_ticket',
+    url: '/tickets/new'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/tickets/open'
+        controller: 'TicketFormController as ticket_form_ctrl'
+  )

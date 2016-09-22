@@ -16,6 +16,7 @@
 //= require angular
 //= require angular-resource
 //= require angular-ui-router
+//= require angular-messages
 //= require turbolinks
 //= require semantic_ui/semantic_ui
 //= require index

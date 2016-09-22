@@ -1,0 +1,42 @@
+%form#open-ticket-form.ui.form{ novalidate: true, name: 'openTicketForm' }
+  %h1.ui.header Opening a new support ticket
+
+  = hidden_field_tag :id, '', { ng_model: 'ticket_form_ctrl.ticket.id', 'ng-show': 'ticket_form_ctrl.ticket.isPersisted()' }
+
+  .field{ ng_class: "{ 'error' : openTicketForm['ticket[title]'].$touched && openTicketForm['ticket[title]'].$invalid }" }
+    = label :ticket, :title, 'Title'
+    = text_field :ticket, :title, { ng_model: 'ticket_form_ctrl.ticket.title',
+                                    required: true,
+                                    ng_minlength: 10,
+                                    ng_maxlength: 255 }
+
+    .ui.pointing.red.label.error-messages{ ng_messages: "openTicketForm['ticket[title]'].$error" }
+      .error{ ng_message: :required } Please provide a title for this ticket.
+      .error{ ng_message: :minlength }
+        The title must contain at least 10 characters.
+        ({{ openTicketForm['ticket[title]'].$viewValue.length }})
+
+      .error{ ng_message: :maxlength }
+        The title must contain at most 255 characters.
+        ({{ openTicketForm['ticket[title]'].$viewValue.length }})
+
+  .field{ ng_class: "{ 'error' : openTicketForm['ticket[description]'].$touched && openTicketForm['ticket[description]'].$invalid }" }
+    = label :ticket, :description, 'Description'
+    = text_area :ticket, :description, { ng_model: 'ticket_form_ctrl.ticket.description',
+                                         required: true,
+                                         ng_minlength: 40,
+                                         ng_maxlength: 2000 }
+
+    .ui.pointing.red.label.error-messages{ ng_messages: "openTicketForm['ticket[description]'].$error" }
+      .error{ ng_message: :required } Please provide a description for this ticket
+      .error{ ng_message: :minlength }
+        The description must contain at least 40 characters.
+        ({{ openTicketForm['ticket[description]'].$viewValue.length }})
+
+      .error{ ng_message: :maxlength }
+        The description must contain at most 2000 characters.
+        ({{ openTicketForm['ticket[description]'].$viewValue.length }})
+
+  .field
+    .ui.primary.button{ 'ng-click': 'ticket_form_ctrl.save()' } Confirm
+    = link_to 'Cancel', '/'

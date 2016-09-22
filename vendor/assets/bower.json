@@ -4,6 +4,7 @@
     "momentjs": "latest",
     "angular": "latest",
     "angular-resource": "latest",
-    "angular-ui-router": "latest"
+    "angular-ui-router": "latest",
+    "angular-messages": "latest"
   }
 }
