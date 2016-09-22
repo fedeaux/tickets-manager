@@ -1,3 +1,2 @@
-asset 'jquery'
 asset 'momentjs'
 asset 'angular'
