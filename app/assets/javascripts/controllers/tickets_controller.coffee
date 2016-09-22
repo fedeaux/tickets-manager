@@ -1,31 +1,24 @@
 class TicketsController
-  constructor: (@scope, @stateParams) ->
+  constructor: (@scope, @stateParams, @Ticket, @TicketsService) ->
     window.tickets_ctrl = @
+    @service = new @TicketsService
     @loadTickets()
 
   loadTickets: ->
-    @tickets = {
-      1: {
-        title: 'Angular not working',
-        created_at: moment(),
-        status: 'open',
-        unread_messages: 2,
-        is_open: true
-      },
+    @service.index (response) =>
+      @setTickets response.tickets
 
-      2: {
-        title: 'Rails not working',
-        created_at: moment().subtract(10, 'days'),
-        status: 'closed'
-        unread_messages: 0,
-        is_closed: true
-      },
-    }
+  setTickets: (tickets_attributes) ->
+    @tickets = {}
+
+    for ticket_attributes in tickets_attributes
+      ticket = new @Ticket ticket_attributes
+      @tickets[ticket.id] = ticket
 
     @updateAuxiliarDataStructures()
 
   updateAuxiliarDataStructures: ->
     @displayable_tickets = ( ticket for id, ticket of @tickets )
 
-TicketsController.$inject = ['$scope', '$stateParams']
+TicketsController.$inject = [ '$scope', '$stateParams', 'Ticket', 'TicketsService' ]
 angular.module('TicketsApp').controller 'TicketsController', TicketsController
