@@ -1,6 +1,7 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
+    "es5-shim": "latest",
     "momentjs": "latest",
     "angular": "latest",
     "angular-resource": "latest",
