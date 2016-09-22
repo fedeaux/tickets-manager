@@ -21,6 +21,7 @@ gem 'less-rails-semantic_ui'
 gem "bower-rails", "~> 0.10.0"
 gem 'coffee-rails', '~> 4.2'
 gem 'compass-rails'
+gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'

@@ -1,0 +1,30 @@
+.ui.three.column.centered.doubling.stackable.grid
+  .centered.column
+    .ui.segment
+      %h2.ui.dividing.header Sign up
+
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'ui form' }) do |f|
+        = devise_error_messages!
+        .field
+          = f.label :name
+          = f.text_field :name, autofocus: true
+
+        .field
+          = f.label :email
+          = f.email_field :email
+
+        .field
+          = f.label :password
+          - if @validatable
+            %em
+              (#{@minimum_password_length} characters minimum)
+          = f.password_field :password, autocomplete: "off"
+
+        .field
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off"
+
+        .field
+          = f.submit 'Sign up', class: 'ui primary button'
+
+        = link_to 'Sign in', new_session_path(resource_name)
