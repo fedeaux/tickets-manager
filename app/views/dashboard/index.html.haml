@@ -1,1 +1,4 @@
-%h1.ui.header The Awesome Tickets App
+#dashboard-index{ ng_controller: 'TicketsController as tickets_ctrl' }
+  %h1.ui.header My Tickets
+
+  = render 'tickets/list'

@@ -1,2 +1,4 @@
 asset 'momentjs'
 asset 'angular'
+asset 'angular-resource'
+asset 'angular-ui-router'

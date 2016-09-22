@@ -1,8 +1,9 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "jquery": "latest",
     "momentjs": "latest",
-    "angular": "latest"
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-ui-router": "latest"
   }
 }
