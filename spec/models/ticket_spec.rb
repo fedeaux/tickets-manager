@@ -22,8 +22,8 @@ RSpec.describe Ticket, type: :model do
       expect(Ticket.new ticket_attributes.merge(description: 'big'*2000 )).to be_invalid
     end
 
-    it 'validates status to be present and be one of the valid statuses' do
-      expect(Ticket.new ticket_attributes.merge(status: nil)).to be_invalid
+    it 'automatically sets the status to "open", but validates be one of the valid statuses' do
+      expect(Ticket.create(ticket_attributes.merge(status: nil)).status).to eq 'open'
       expect(Ticket.new ticket_attributes.merge(status: 'Jack Nicholson')).to be_invalid
     end
 

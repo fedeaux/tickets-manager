@@ -6,4 +6,10 @@ class Ticket < ApplicationRecord
   validates :title, presence: true, length: { minimum: 10, maximum: 255 }
   validates :description, presence: true, length: { minimum: 40, maximum: 2000 }
   validates :status, presence: true, inclusion: { in: Ticket::VALID_STATUSES }
+
+  before_validation :ensure_status
+
+  def ensure_status
+    self.status = 'open' unless self.status
+  end
 end
