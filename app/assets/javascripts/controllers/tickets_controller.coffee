@@ -27,5 +27,5 @@ class TicketsController
   updateAuxiliarDataStructures: ->
     @displayable_tickets = ( ticket for id, ticket of @tickets )
 
-TicketsController.$inject = ['$scope', '$stateParams'] #, 'ExerciseService', 'Exercise']
+TicketsController.$inject = ['$scope', '$stateParams']
 angular.module('TicketsApp').controller 'TicketsController', TicketsController

@@ -1,0 +1,17 @@
+tickets =
+  url: ''
+  views:
+    'dashboard@':
+      templateUrl: '/templates/tickets/index'
+      controller: 'TicketsController as tickets_ctrl'
+
+tickets_with_slash = angular.copy tickets
+tickets_with_slash.url = '/'
+
+angular.module('TicketsApp')
+.config ($stateProvider) ->
+  $stateProvider.state('app',
+    abstract: true
+    template: '<ui-view/>'
+  ).state('app.tickets', tickets)
+  .state('app.stickets', tickets_with_slash)
