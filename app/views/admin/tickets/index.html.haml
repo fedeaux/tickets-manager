@@ -1,0 +1,7 @@
+.tickets-index-header
+  %h1.ui.header Tickets
+  .clear
+
+.ui.divider
+
+= render 'tickets/list', spa_show_ticket_path: '#/admin/tickets/', empty_tickets_message: "There are no tickets"
