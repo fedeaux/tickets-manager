@@ -2,7 +2,20 @@ class AdminTicketsController
   constructor: (@scope, @stateParams, @Ticket, @AdminTicketsService) ->
     window.tickets_ctrl = @
     @service = new @AdminTicketsService
+
+    @scope.$on 'TicketsFilter::Installed', @setFilter
+    @scope.$on 'TicketsFilter::Updated', @updateAuxiliarDataStructures
+
     @loadTickets()
+
+  showTicket: (ticket) =>
+    if @filter
+      @filter ticket
+    else
+      true
+
+  setFilter: (event, args) =>
+    @filter = args.filter
 
   loadTickets: ->
     @service.index (response) =>
@@ -17,8 +30,8 @@ class AdminTicketsController
 
     @updateAuxiliarDataStructures()
 
-  updateAuxiliarDataStructures: ->
-    @displayable_tickets = ( ticket for id, ticket of @tickets ).sort (t1, t2) =>
+  updateAuxiliarDataStructures: =>
+    @displayable_tickets = ( ticket for id, ticket of @tickets when @showTicket(ticket) ).sort (t1, t2) =>
       if t1.created_at > t2.created_at
         (-1)
 
