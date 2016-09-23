@@ -12,4 +12,12 @@ class Ticket < ApplicationRecord
   def ensure_status
     self.status = 'open' unless self.status
   end
+
+  def open?
+    self.status == 'open'
+  end
+
+  def closed?
+    self.status == 'closed'
+  end
 end

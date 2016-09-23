@@ -2,8 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
   describe 'factories' do
-    it 'has a valid factory' do
-      expect(create :ticket).to be_valid
+    it 'has a valid factory, defaulting status to open' do
+      ticket = create :ticket
+      expect(ticket).to be_valid
+      expect(ticket.open?).to be true
+      expect(ticket.closed?).to be false
+    end
+
+    it 'has a valid factory, with closed status trait' do
+      ticket = create :ticket, :closed
+      expect(ticket).to be_valid
+      expect(ticket.open?).to be false
+      expect(ticket.closed?).to be true
     end
   end
 
