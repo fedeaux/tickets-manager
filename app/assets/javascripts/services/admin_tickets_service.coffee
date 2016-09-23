@@ -1,7 +1,9 @@
 angular.module('TicketsApp').factory 'AdminTicketsService', ($resource, $http) ->
   class AdminTicketsService
     constructor: ->
-      @service = $resource('/api/admin/tickets/:id', {}, {})
+      @service = $resource('/api/admin/tickets/:id', {}, {
+       'update': { method: 'PUT'}
+      })
 
     create: (ticket, complete) ->
       new @service(ticket: ticket.attributes()).$save @onServerResponse(complete), @errorHandler
@@ -11,6 +13,9 @@ angular.module('TicketsApp').factory 'AdminTicketsService', ($resource, $http) -
 
     get: (id, complete) ->
       new @service().$get {id: id}, @onServerResponse(complete), @errorHandler
+
+    update: (id, attributes, complete) ->
+      new @service( ticket: attributes ).$update {id: id}, @onServerResponse(complete), @errorHandler
 
     errorHandler: ->
       alert 'Something went wrong, try again later'

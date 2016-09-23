@@ -9,3 +9,12 @@
   %pre {{ ticket_ctrl.ticket.description }}
 
   = link_to 'Back to tickets list', '#/admin/tickets'
+
+  .ui.divider
+
+  .ui.red.button#close-ticket-button{ ng_click: 'ticket_ctrl.closeThisTicket()',
+                                      ng_show: 'ticket_ctrl.ticket.is_open' }
+    Close this ticket
+
+  .ui.info.message#closed-ticket-message{ ng_show: 'ticket_ctrl.ticket.is_closed' }
+    This ticket has been closed {{ ticket_ctrl.ticket.closed_at | elapsed_time }}

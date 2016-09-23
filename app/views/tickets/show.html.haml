@@ -9,3 +9,8 @@
   %pre {{ ticket_ctrl.ticket.description }}
 
   = link_to 'Back to tickets list', '/'
+
+  .ui.divider
+
+  .ui.info.message{ ng_show: 'ticket_ctrl.ticket.is_closed' }
+    This ticket has been closed {{ ticket_ctrl.ticket.closed_at | elapsed_time }}
