@@ -3,4 +3,8 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tickets
+
+  def admin?
+    role == 'admin'
+  end
 end
