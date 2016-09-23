@@ -1,2 +1,6 @@
+asset 'es5-shim'
 asset 'momentjs'
 asset 'angular'
+asset 'angular-resource'
+asset 'angular-ui-router'
+asset 'angular-messages'

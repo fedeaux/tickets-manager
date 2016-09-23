@@ -1,0 +1,8 @@
+.tickets-index-header
+  %h1.ui.header My Tickets
+  = link_to 'Open new ticket', '#/tickets/new', class: 'ui primary button', id: 'open-ticket-button'
+  .clear
+
+.ui.divider
+
+= render 'tickets/list'
