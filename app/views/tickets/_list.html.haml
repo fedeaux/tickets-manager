@@ -10,7 +10,8 @@
       .unread-messages.ui.small.green.circular.label{ ng_show: 'ticket.unread_messages > 0' }
         {{ ticket.unread_messages }}
 
-      .title {{ ticket.title }}
+      = link_to '', ng_href: '#/tickets/{{ ticket.id }}', class: 'title' do
+        {{ ticket.title }}
 
       .clear
 

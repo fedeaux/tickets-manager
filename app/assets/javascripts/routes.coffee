@@ -21,4 +21,10 @@ angular.module('TicketsApp')
       'dashboard@':
         templateUrl: '/templates/tickets/open'
         controller: 'TicketFormController as ticket_form_ctrl'
+  ).state('app.ticket',
+    url: '/tickets/:id'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/tickets/show'
+        controller: 'TicketController as ticket_ctrl'
   )

@@ -9,6 +9,9 @@ angular.module('TicketsApp').factory 'TicketsService', ($resource, $http) ->
     index: (complete) ->
       new @service().$get @onServerResponse(complete), @errorHandler
 
+    get: (id, complete) ->
+      new @service().$get {id: id}, @onServerResponse(complete), @errorHandler
+
     errorHandler: ->
       alert 'Something went wrong, try again later'
 

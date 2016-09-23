@@ -11,6 +11,7 @@ angular.module('TicketsApp').factory 'Ticket', ($resource) ->
           @[name] = default_value
 
       @parseDateFields()
+      @addAuxiliarAttributes()
 
     isPersisted: ->
       !! @id
@@ -27,6 +28,10 @@ angular.module('TicketsApp').factory 'Ticket', ($resource) ->
         created_at: null
 
       attr
+
+    addAuxiliarAttributes: ->
+      @is_open = (@status == 'open')
+      @is_closed = (@status == 'closed')
 
     attributes: ->
       attr = {}
