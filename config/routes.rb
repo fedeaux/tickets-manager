@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :tickets, only: [:index, :create, :show]
 
     namespace :admin do
-      resources :tickets, only: [:index, :show]
+      resources :tickets, only: [:index, :show, :update]
     end
   end
 end
