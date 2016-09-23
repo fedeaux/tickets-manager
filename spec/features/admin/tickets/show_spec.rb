@@ -15,6 +15,7 @@ feature "View a ticket", js: true do
     expect(page).to have_content open_ticket.description
 
     expect(page).to have_css '#close-ticket-button'
+    expect(page).to have_css '#edit-ticket-button'
     expect(page).not_to have_css '#closed-ticket-message'
   end
 
@@ -24,6 +25,7 @@ feature "View a ticket", js: true do
     expect(page).to have_content open_ticket.description
 
     expect(page).not_to have_css '#close-ticket-button'
+    expect(page).not_to have_css '#edit-ticket-button'
     expect(page).to have_css '#closed-ticket-message'
   end
 end

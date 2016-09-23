@@ -1,20 +1,10 @@
 #show-ticket
-  %h1.ui.header
-    {{ ticket_ctrl.ticket.title }}
-    .status.ui.label{ ng_class: "{ 'orange': ticket_ctrl.ticket.is_open, 'green': ticket_ctrl.ticket.is_closed }" }
-      {{ ticket_ctrl.ticket.status }}
-
-    .sub.header {{ ticket_ctrl.ticket.created_at | elapsed_time }}
-
-  %pre {{ ticket_ctrl.ticket.description }}
-
-  = link_to 'Back to tickets list', '#/admin/tickets'
-
-  .ui.divider
+  = render '/tickets/info'
 
   .ui.red.button#close-ticket-button{ ng_click: 'ticket_ctrl.closeThisTicket()',
                                       ng_show: 'ticket_ctrl.ticket.is_open' }
     Close this ticket
 
-  .ui.info.message#closed-ticket-message{ ng_show: 'ticket_ctrl.ticket.is_closed' }
-    This ticket has been closed {{ ticket_ctrl.ticket.closed_at | elapsed_time }}
+  .ui.basic.button#edit-ticket-button{ ng_click: 'ticket_ctrl.editTicket()',
+                                       ng_show: 'ticket_ctrl.ticket.is_open' }
+    Edit
