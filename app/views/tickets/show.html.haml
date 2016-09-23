@@ -5,3 +5,7 @@
       {{ ticket_ctrl.ticket.status }}
 
     .sub.header {{ ticket_ctrl.ticket.created_at | elapsed_time }}
+
+  %pre {{ ticket_ctrl.ticket.description }}
+
+  = link_to 'Back to tickets list', '/'
