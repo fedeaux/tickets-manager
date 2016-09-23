@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-22T21:03:10-03:00">2016-09-22T21:03:10-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-22T21:24:09-03:00">2016-09-22T21:24:09-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">50.65%</span></span>
+    (<span class="covered_percent"><span class="red">52.5%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.6
+         1.63
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>14</b> files in total.
-    <b>77</b> relevant lines. 
-    <span class="green"><b>39</b> lines covered</span> and
+    <b>80</b> relevant lines. 
+    <span class="green"><b>42</b> lines covered</span> and
     <span class="red"><b>38</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -83,9 +83,9 @@
       <tr>
         <td class="strong"><a href="#58950f60749429db2cc02e7e39013983480eb038" class="src_link" title="app/controllers/api/tickets_controller.rb">app/controllers/api/tickets_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>9</td>
-        <td>9</td>
+        <td>20</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -177,7 +177,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>3.3</td>
+        <td>3.5</td>
       </tr>
       
       <tr>
@@ -199,19 +199,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">69.05%</span></span>
+    (<span class="covered_percent"><span class="red">71.11%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.14
+         2.12
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>6</b> files in total.
-    <b>42</b> relevant lines. 
-    <span class="green"><b>29</b> lines covered</span> and
+    <b>45</b> relevant lines. 
+    <span class="green"><b>32</b> lines covered</span> and
     <span class="red"><b>13</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -241,9 +241,9 @@
       <tr>
         <td class="strong"><a href="#58950f60749429db2cc02e7e39013983480eb038" class="src_link" title="app/controllers/api/tickets_controller.rb">app/controllers/api/tickets_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>15</td>
-        <td>9</td>
-        <td>9</td>
+        <td>20</td>
+        <td>12</td>
+        <td>12</td>
         <td>0</td>
         <td>1.8</td>
       </tr>
@@ -300,7 +300,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.74
+         1.84
        </span>
     </span> hits/line)
   </h2>
@@ -342,7 +342,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>3.3</td>
+        <td>3.5</td>
       </tr>
       
       <tr>
@@ -730,8 +730,8 @@
     <h3>app/controllers/api/tickets_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -784,7 +784,7 @@
         <li class="covered" data-hits="2" data-linenumber="8">
           <span class="hits">2</span>
           
-          <code class="ruby">    render :show</code>
+          <code class="ruby">    head 200</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -802,19 +802,19 @@
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
           
-          <code class="ruby">  def ticket_params</code>
+          <code class="ruby">    @ticket = current_user.tickets.find_by(id: params[:id])</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="13">
           <span class="hits">2</span>
           
-          <code class="ruby">    params.require(:ticket).permit(:title, :description)</code>
+          <code class="ruby">    head 404 unless @ticket</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -824,6 +824,36 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def ticket_params</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="18">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    params.require(:ticket).permit(:title, :description)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby">end</code>
@@ -1393,8 +1423,8 @@
           <code class="ruby">  def ensure_status</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="13">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="26" data-linenumber="13">
+          <span class="hits">26</span>
           
           <code class="ruby">    self.status = &#39;open&#39; unless self.status</code>
         </li>
