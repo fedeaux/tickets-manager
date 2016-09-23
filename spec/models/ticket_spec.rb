@@ -2,8 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
   describe 'factories' do
-    it 'has a valid factory' do
-      expect(create :ticket).to be_valid
+    it 'has a valid factory, defaulting status to open' do
+      ticket = create :ticket
+      expect(ticket).to be_valid
+      expect(ticket.open?).to be true
+      expect(ticket.closed?).to be false
+      expect(ticket.closed_at).to be_nil
+    end
+
+    it 'has a valid factory, with closed status trait' do
+      ticket = create :ticket, :closed
+      expect(ticket).to be_valid
+      expect(ticket.open?).to be false
+      expect(ticket.closed?).to be true
+      expect(ticket.closed_at).not_to be_nil
     end
   end
 
@@ -29,6 +41,36 @@ RSpec.describe Ticket, type: :model do
 
     it 'validates the user presence' do
       expect(Ticket.new ticket_attributes.except(:user)).to be_invalid
+    end
+  end
+
+  describe '#update' do
+    let(:open_ticket) { create :ticket }
+    let(:closed_ticket) { create :ticket, :closed }
+
+    it 'updates an open ticket' do
+      open_ticket.update title: 'A new title'
+      expect(open_ticket.title).to eq 'A new title'
+    end
+
+    it 'ignores updates on a closed ticket' do
+      closed_ticket.update title: 'A new title'
+      expect(open_ticket.title).not_to eq 'A new title'
+    end
+
+    it 'ignores updates to an invalid status' do
+      open_ticket.update status: 'running away', title: "A new title"
+      open_ticket.reload
+
+      expect(open_ticket.closed_at).to be_nil
+      expect(open_ticket.status).to eq 'open'
+      expect(open_ticket.title).not_to eq 'A new title'
+    end
+
+    it 'automatically updates closed_at if updating the status to "closed"' do
+      open_ticket.update status: 'closed'
+      expect(open_ticket.closed_at).not_to be_nil
+      expect(open_ticket.closed?).to be true
     end
   end
 end

@@ -10,10 +10,10 @@
       .unread-messages.ui.small.green.circular.label{ ng_show: 'ticket.unread_messages > 0' }
         {{ ticket.unread_messages }}
 
-      = link_to '', ng_href: '#/tickets/{{ ticket.id }}', class: 'title' do
+      = link_to '', ng_href: "#{spa_show_ticket_path}{{ ticket.id }}", class: 'title' do
         {{ ticket.title }}
 
       .clear
 
   .ui.info.message.empty-message{ ng_show: 'tickets_ctrl.displayable_tickets.length == 0' }
-    You have no tickets
+    = empty_tickets_message

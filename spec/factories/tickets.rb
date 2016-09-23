@@ -5,5 +5,9 @@ FactoryGirl.define do
     description "When I try to develop systems, I keep getting a screen full of errors :("
     status 'open'
     closed_at nil
+
+    trait :closed do
+      status 'closed'
+    end
   end
 end
