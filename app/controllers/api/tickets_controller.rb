@@ -5,7 +5,12 @@ class Api::TicketsController < Api::BaseController
 
   def create
     @ticket = Ticket.create ticket_params.merge( user: current_user )
-    render :show
+    head 200
+  end
+
+  def show
+    @ticket = current_user.tickets.find_by(id: params[:id])
+    head 404 unless @ticket
   end
 
   private
