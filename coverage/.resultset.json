@@ -1,0 +1,142 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/models/ticket.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        26,
+        null,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/application_controller.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/templates_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        10,
+        10,
+        null,
+        null,
+        1,
+        1,
+        10,
+        10,
+        10,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        10,
+        null,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/dashboard_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/api/tickets_controller.rb": [
+        1,
+        1,
+        5,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        1,
+        2,
+        null,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/api/base_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/controllers/registrations_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/helpers/application_helper.rb": [
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/jobs/application_job.rb": [
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/mailers/application_mailer.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/models/application_record.rb": [
+        0,
+        0,
+        0
+      ],
+      "/Users/fedorius/Work/interviews/crossover/tickets/app/models/user.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "timestamp": 1474590249
+  }
+}

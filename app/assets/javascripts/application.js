@@ -10,7 +10,15 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require es5-shim
 //= require jquery
 //= require jquery_ujs
+//= require momentjs
+//= require angular
+//= require angular-resource
+//= require angular-ui-router
+//= require angular-messages
 //= require turbolinks
+//= require semantic_ui/semantic_ui
+//= require index
 //= require_tree .

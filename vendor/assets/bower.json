@@ -1,8 +1,11 @@
 {
   "name": "dsl-generated dependencies",
   "dependencies": {
-    "jquery": "latest",
+    "es5-shim": "latest",
     "momentjs": "latest",
-    "angular": "latest"
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-ui-router": "latest",
+    "angular-messages": "latest"
   }
 }

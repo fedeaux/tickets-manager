@@ -1,0 +1,19 @@
+.tickets-list
+  .item{ ng_repeat: 'ticket in tickets_ctrl.displayable_tickets' }
+    .header
+      .created-at {{ ticket.created_at | elapsed_time }}
+
+      .status.ui.label{ ng_class: "{ 'orange': ticket.is_open, 'green': ticket.is_closed }" } {{ ticket.status }}
+      .clear
+
+    .body
+      .unread-messages.ui.small.green.circular.label{ ng_show: 'ticket.unread_messages > 0' }
+        {{ ticket.unread_messages }}
+
+      = link_to '', ng_href: '#/tickets/{{ ticket.id }}', class: 'title' do
+        {{ ticket.title }}
+
+      .clear
+
+  .ui.info.message.empty-message{ ng_show: 'tickets_ctrl.displayable_tickets.length == 0' }
+    You have no tickets
