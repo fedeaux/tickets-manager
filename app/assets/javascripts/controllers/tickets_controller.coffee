@@ -18,7 +18,15 @@ class TicketsController
     @updateAuxiliarDataStructures()
 
   updateAuxiliarDataStructures: ->
-    @displayable_tickets = ( ticket for id, ticket of @tickets )
+    @displayable_tickets = ( ticket for id, ticket of @tickets ).sort (t1, t2) =>
+      if t1.created_at > t2.created_at
+        (-1)
+
+      else if t1.created_at < t2.created_at
+        1
+
+      else
+        0
 
 TicketsController.$inject = [ '$scope', '$stateParams', 'Ticket', 'TicketsService' ]
 angular.module('TicketsApp').controller 'TicketsController', TicketsController
