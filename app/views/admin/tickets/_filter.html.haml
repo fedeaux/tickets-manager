@@ -1,0 +1,18 @@
+%h3.ui.header Filter
+
+%table.ui.basic.collapsing.compact.table{ ng_controller: 'TicketsFilterController as filter_ctrl'}
+  %tr
+    %td Status
+    %td
+      .ui.small.buttons
+        - ['all', 'open', 'closed'].each do |status|
+          .ui.button{ng_click: "filter_ctrl.setStatusFilter('#{status}')",
+                     ng_class: "{'active' : filter_ctrl.status_filter == '#{status}' }" }= status.titleize
+
+  %tr
+    %td Time Range
+    %td
+      .ui.small.buttons
+        - ['all', 'last_month'].each do |time_range|
+          .ui.button{ng_click: "filter_ctrl.setTimeFilter('#{time_range}')",
+                     ng_class: "{'active' : filter_ctrl.time_filter == '#{time_range}' }" }= time_range.gsub('_', ' ').titleize

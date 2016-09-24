@@ -2,6 +2,10 @@
   %h1.ui.header Tickets
   .clear
 
+= render '/admin/tickets/filter'
+
+.ui.small.basic.button{ ng_click: 'tickets_ctrl.downloadAsPDF()' } Download selected tickets as PDF
+
 .ui.divider
 
 = render 'tickets/list', spa_show_ticket_path: '#/admin/tickets/', empty_tickets_message: "There are no tickets"

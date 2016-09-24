@@ -9,6 +9,9 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'string-urlize'
 gem 'seedbank'
 
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 # Modeling
 gem 'ancestry'
 gem 'devise'
