@@ -2,6 +2,9 @@
   .ui.three.column.centered.doubling.stackable.grid
     .column
       .ui.segment
+        - flash.each do |type, message|
+          .ui.red.message= message
+
         %h2.ui.dividing.header Sign in
         .field
           = f.email_field :email, autofocus: true, placeholder: 'e-mail'
