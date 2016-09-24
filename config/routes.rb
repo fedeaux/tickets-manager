@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   namespace :api, defaults: { format: :json } do
-    resources :tickets, only: [:index, :create, :show]
+    resources :tickets, only: [:index, :create, :show] do
+      resources :ticket_messages, path: :messages, only: [:index, :create]
+    end
 
     namespace :admin do
       resources :tickets, only: [:index, :show, :update]
