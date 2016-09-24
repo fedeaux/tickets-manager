@@ -15,5 +15,10 @@
 
 .ui.divider
 
-.ui.info.message#closed-ticket-message{ ng_show: 'ticket_ctrl.ticket.is_closed' }
-  This ticket has been closed {{ ticket_ctrl.ticket.closed_at | elapsed_time }}
+#closed-ticket-message{ ng_show: 'ticket_ctrl.ticket.is_closed' }
+  .ui.info.message
+    This ticket has been closed {{ ticket_ctrl.ticket.closed_at | elapsed_time }}
+
+  .ui.divider
+
+= render 'ticket_messages/index'
