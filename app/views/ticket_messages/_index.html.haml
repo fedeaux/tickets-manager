@@ -1,0 +1,46 @@
+#ticket-messages{ ng_controller: 'TicketMessagesController as messages_ctrl' }
+  .ui.centered.grid
+    .fourteen.wide.column
+      .ticket-messages-list
+        .item{ ng_repeat: 'message in messages_ctrl.displayable_messages' }
+          .header
+            .user
+              {{ message.user.name }}
+              wrote:
+
+            .created-at
+              {{ message.created_by | elapsed_time }}
+
+            .clear
+
+          .text
+            %pre {{ message.text }}
+
+      .ui.blue.message.no-messages{ ng_show: 'messages_ctrl.displayable_messages.length == 0' }
+        No messages for this ticket
+
+      %form#new-ticket-message-form.ui.form{ novalidate: true, name: 'newTicketMessageForm' }
+        = hidden_field_tag :id, '', { ng_model: 'messages_ctrl.form_ticket.id',
+                                      ng_show: 'messages_ctrl.form_ticket.isPersisted()' }
+
+        .field{ ng_class: "{ 'error' : newTicketMessageForm['ticket[text]'].$touched && newTicketMessageForm['ticket[text]'].$invalid }" }
+          = label :ticket_message, :text, 'Text'
+          = text_area :ticket_message, :text, { ng_model: 'messages_ctrl.form_message.text',
+                                                required: true,
+                                                ng_minlength: 10,
+                                                ng_maxlength: 4000,
+                                                autofocus: true }
+
+          .ui.pointing.red.label.error-messages{ ng_messages: "newTicketMessageForm['ticket[text]'].$error" }
+            .error{ ng_message: :required } Please provide a text for this message.
+
+            .error{ ng_message: :minlength }
+              The text must contain at least 10 characters.
+              ({{ openTicketForm['ticket[text]'].$viewValue.length }})
+
+            .error{ ng_message: :maxlength }
+              The text must contain at most 4000 characters.
+              ({{ openTicketForm['ticket[text]'].$viewValue.length }})
+
+        .field{ ng_show: 'newTicketMessageForm.$valid' }
+          .ui.small.primary.button{ ng_click: 'messages_ctrl.save()' } Post message

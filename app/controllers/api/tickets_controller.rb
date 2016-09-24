@@ -5,7 +5,7 @@ class Api::TicketsController < Api::BaseController
 
   def create
     @ticket = Ticket.create ticket_params.merge( user: current_user )
-    head 200
+    render 'api/tickets/show'
   end
 
   def show

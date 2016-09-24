@@ -1,10 +1,10 @@
 #show-ticket
-  = render '/tickets/info'
-
-  .ui.red.button#close-ticket-button{ ng_click: 'ticket_ctrl.closeThisTicket()',
+  .ui.mini.red.button#close-ticket-button{ ng_click: 'ticket_ctrl.closeThisTicket()',
                                       ng_show: 'ticket_ctrl.ticket.is_open' }
     Close this ticket
 
-  .ui.basic.button#edit-ticket-button{ ng_click: 'ticket_ctrl.editTicket()',
+  .ui.mini.basic.button#edit-ticket-button{ ng_click: 'ticket_ctrl.editTicket()',
                                        ng_show: 'ticket_ctrl.ticket.is_open' }
     Edit
+
+  = render '/tickets/info'

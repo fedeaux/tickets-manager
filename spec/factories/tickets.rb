@@ -9,5 +9,11 @@ FactoryGirl.define do
     trait :closed do
       status 'closed'
     end
+
+    trait :with_messages do
+      after :create do |ticket|
+        create_list :ticket_message, 3, ticket: ticket, user: ticket.user
+      end
+    end
   end
 end
