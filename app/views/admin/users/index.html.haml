@@ -1,0 +1,15 @@
+.users-index-header
+  %h1.ui.header Users
+  .clear
+
+.ui.divider
+
+.users-list
+  %h3.ui.header Admins
+  = render 'admin/users/list', collection: 'displayable_admins'
+
+.ui.hidden.divider
+
+.users-list
+  %h3.ui.header Customers
+  = render 'admin/users/list', collection: 'displayable_customers'

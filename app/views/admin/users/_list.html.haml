@@ -1,0 +1,23 @@
+.item{ ng_repeat: "user in users_ctrl.#{collection}", ng_show: "users_ctrl.#{collection}.length > 0" }
+  .ui.grid
+    .ten.wide.column
+      .name
+        {{ user.name }}
+
+      .email
+        = "&lt;{{ user.email }}&gt;".html_safe
+
+      .clear
+
+      .created_at
+        Created {{ user.created_at | elapsed_time }}
+
+    .six.wide.column
+      .ui.right.mini.red.button.action{{ ng_show: 'user.isAdmin', ng_click: 'users_ctrl.removeAdminPrivileges(user)' }}
+        Remove Admin Privileges
+
+      .ui.right.mini.red.button.action{{ ng_hide: 'user.isAdmin', ng_click: 'users_ctrl.promoteToAdmin(user)' }}
+        Promote to Admin
+
+.ui.blue.message{ ng_show: "users_ctrl.#{collection}.length == 0" }
+  No other user on this list

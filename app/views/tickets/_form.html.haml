@@ -1,12 +1,16 @@
-%form#open-ticket-form.ui.form{ novalidate: true, name: 'openTicketForm', ng_hide: 'ticket_form_ctrl.hasBeenCreated' }
-  = hidden_field_tag :id, '', { ng_model: 'ticket_form_ctrl.ticket.id', 'ng-show': 'ticket_form_ctrl.ticket.isPersisted()' }
+%form#open-ticket-form.ui.form{ novalidate: true, name: 'openTicketForm',
+                                                  ng_hide: 'ticket_form_ctrl.hasBeenCreated' }
+
+  = hidden_field_tag :id, '', { ng_model: 'ticket_form_ctrl.ticket.id',
+                                ng_show: 'ticket_form_ctrl.ticket.isPersisted()' }
 
   .field{ ng_class: "{ 'error' : openTicketForm['ticket[title]'].$touched && openTicketForm['ticket[title]'].$invalid }" }
     = label :ticket, :title, 'Title'
     = text_field :ticket, :title, { ng_model: 'ticket_form_ctrl.ticket.title',
                                     required: true,
                                     ng_minlength: 10,
-                                    ng_maxlength: 255 }
+                                    ng_maxlength: 255,
+                                    autofocus: true }
 
     .ui.pointing.red.label.error-messages{ ng_messages: "openTicketForm['ticket[title]'].$error" }
       .error{ ng_message: :required } Please provide a title for this ticket.
@@ -36,5 +40,5 @@
         ({{ openTicketForm['ticket[description]'].$viewValue.length }})
 
   .field
-    .ui.primary.button#open-ticket-button{ 'ng-click': 'ticket_form_ctrl.save()' } Confirm
+    .ui.primary.button#open-ticket-button{ ng_click: 'ticket_form_ctrl.save(openTicketForm)' } Confirm
     = link_to 'Cancel', '/'
