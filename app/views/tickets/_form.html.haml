@@ -1,5 +1,5 @@
 %form#open-ticket-form.ui.form{ novalidate: true, name: 'openTicketForm',
-                                                  ng_hide: 'ticket_form_ctrl.hasBeenCreated' }
+                                                  ng_hide: 'ticket_form_ctrl.ticket_id' }
 
   = hidden_field_tag :id, '', { ng_model: 'ticket_form_ctrl.ticket.id',
                                 ng_show: 'ticket_form_ctrl.ticket.isPersisted()' }

@@ -2,8 +2,9 @@
 
 = render 'tickets/form'
 
-#new-ticket-feedback{ ng_show: 'ticket_form_ctrl.hasBeenCreated' }
+#new-ticket-feedback{ ng_show: 'ticket_form_ctrl.ticket_id' }
   .ui.large.blue.message
     Thank you for you feedback. A team of highly trained monkeys has been dispatched to deal with this situation.
 
-  = link_to 'Back to tickets list', '/'
+  %div= link_to 'View you ticket', '', ng_href: "#/tickets/{{ ticket_form_ctrl.ticket_id }}"
+  %div= link_to 'Back to tickets list', '/'

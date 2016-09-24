@@ -7,7 +7,11 @@
 
 %pre {{ ticket_ctrl.ticket.description }}
 
-= link_to 'Back to tickets list', '#/admin/tickets'
+- if current_user.admin?
+  = link_to 'Back to tickets list', '#/admin/tickets'
+
+- else
+  = link_to 'Back to tickets list', '/'
 
 .ui.divider
 
