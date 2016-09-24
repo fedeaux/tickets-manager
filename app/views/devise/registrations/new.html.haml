@@ -1,10 +1,14 @@
 .ui.three.column.centered.doubling.stackable.grid
   .centered.column
     .ui.segment
+      - if resource.errors.any?
+        .ui.red.message
+          - resource.errors.each do |type, message|
+            %div= "#{type}: #{message}"
+
       %h2.ui.dividing.header Sign up
 
       = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'ui form' }) do |f|
-        = devise_error_messages!
         .field
           = f.label :name
           = f.text_field :name, autofocus: true
