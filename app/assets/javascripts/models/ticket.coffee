@@ -18,6 +18,7 @@ angular.module('TicketsApp').factory 'Ticket', ($resource) ->
 
     parseDateFields: ->
       @created_at = moment @created_at
+      @closed_at = moment @closed_at
 
     defaultAttributes: (skip_associations = false) ->
       attr =
@@ -26,6 +27,7 @@ angular.module('TicketsApp').factory 'Ticket', ($resource) ->
         description: null
         status: null
         created_at: null
+        closed_at: null
 
       attr
 

@@ -12,4 +12,12 @@ FactoryGirl.define do
     password 'defaultpassword'
     password_confirmation 'defaultpassword'
   end
+
+  factory :admin, class: :user do
+    name 'Stevie Ray Vaughn'
+    email 'vaughn@ray.com'
+    role 'admin'
+    password 'defaultpassword'
+    password_confirmation 'defaultpassword'
+  end
 end

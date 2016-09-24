@@ -3,4 +3,10 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tickets
+
+  scope :customers, -> { where(role: 'customer') }
+
+  def admin?
+    role == 'admin'
+  end
 end
