@@ -1,0 +1,25 @@
+.users-list
+  .item
+    border-bottom: thin $lightest-gray solid
+    padding: 0.5em 0
+
+    .name
+      float: left
+      font-size: 1.1em
+
+    .email
+      float: left
+      margin-left: 1em
+      color: $medium-gray
+
+    .created_at
+      display: inline
+      font-size: 0.9em
+
+    .action
+      display: none
+      float: right
+
+    &:hover
+      .action
+        display: inline

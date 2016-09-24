@@ -57,4 +57,11 @@ angular.module('TicketsApp')
       'dashboard@':
         templateUrl: '/templates/admin/tickets/edit'
         controller: 'AdminTicketEditFormController as ticket_form_ctrl'
+
+  ).state('admin.users',
+    url: '/users'
+    views:
+      'dashboard@':
+        templateUrl: '/templates/admin/users/index'
+        controller: 'AdminUsersController as users_ctrl'
   )
