@@ -2,6 +2,8 @@ class Ticket < ApplicationRecord
   VALID_STATUSES = ['open', 'closed']
 
   belongs_to :user
+  has_many :messages, class_name: :TicketMessage, dependent: :destroy
+
   validates :user, presence: true
   validates :title, presence: true, length: { minimum: 10, maximum: 255 }
   validates :description, presence: true, length: { minimum: 40, maximum: 2000 }

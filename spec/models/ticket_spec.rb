@@ -73,4 +73,25 @@ RSpec.describe Ticket, type: :model do
       expect(open_ticket.closed?).to be true
     end
   end
+
+  describe '#messages' do
+    let(:open_ticket) { create :ticket }
+
+    it 'can be added messages from the ticket creator' do
+      open_ticket.messages << create(:ray_ticket_message)
+      expect(open_ticket.messages.count).to eq 1
+    end
+
+    it 'can\'t be added messages from an unrelated customer' do
+      open_ticket.messages << build(:steve_ticket_message, ticket: open_ticket)
+      open_ticket.save
+      open_ticket.reload
+      expect(open_ticket.messages.count).to eq 0
+    end
+
+    it 'can be added messages from an admin' do
+      open_ticket.messages << create(:admin_ticket_message)
+      expect(open_ticket.messages.count).to eq 1
+    end
+  end
 end
