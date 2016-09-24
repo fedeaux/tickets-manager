@@ -1,7 +1,8 @@
 class AdminTicketsController
-  constructor: (@scope, @stateParams, @Ticket, @AdminTicketsService) ->
+  constructor: (@scope, @stateParams, @Ticket, @AdminTicketsService, @ReportsService) ->
     window.tickets_ctrl = @
     @service = new @AdminTicketsService
+    @reports_service = new @ReportsService
 
     @scope.$on 'TicketsFilter::Installed', @setFilter
     @scope.$on 'TicketsFilter::Updated', @updateAuxiliarDataStructures
@@ -41,5 +42,9 @@ class AdminTicketsController
       else
         0
 
-AdminTicketsController.$inject = [ '$scope', '$stateParams', 'Ticket', 'AdminTicketsService' ]
+  downloadAsPDF: ->
+    @reports_service.tickets (ticket.id for ticket in @displayable_tickets), (response) =>
+      console.log response
+
+AdminTicketsController.$inject = [ '$scope', '$stateParams', 'Ticket', 'AdminTicketsService', 'ReportsService' ]
 angular.module('TicketsApp').controller 'AdminTicketsController', AdminTicketsController

@@ -1,0 +1,40 @@
+.report-tickets-list
+  - @tickets.each do |ticket|
+    .ticket
+      .field
+        Ticket
+        = "##{ticket.id}"
+        opened at
+        = ticket.created_at.strftime("%b %d, %Y")
+        by
+        = ticket.user.name
+        = "&lt;#{ticket.user.email}&gt;".html_safe
+
+      .field
+        %label Title
+        = ticket.title
+
+      .field
+        %label Description
+        %pre= ticket.description
+
+      .field
+        %label Status
+        = ticket.status
+
+      - if ticket.closed?
+        .field
+          %label Closed at
+          = ticket.closed_at.strftime("%b %d, %Y")
+
+:sass
+  .ticket
+    border-bottom: thin black solid
+    page-break-inside: avoid
+
+  label
+    display: block
+    font-weight: bold
+
+  .field
+    margin: 0.5em

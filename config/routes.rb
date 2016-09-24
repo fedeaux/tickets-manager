@@ -10,4 +10,6 @@ Rails.application.routes.draw do
       resources :tickets, only: [:index, :show, :update]
     end
   end
+
+  get 'api/admin/reports/tickets' => 'api/admin/reports#tickets'
 end
