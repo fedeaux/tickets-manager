@@ -5,8 +5,9 @@ class TicketFormController
     @service = new @TicketsService
     @hasBeenCreated = false
 
-  save: ->
-    @service.create @ticket, @ticketCreated
+  save: (form) ->
+    if form.$valid
+      @service.create @ticket, @ticketCreated
 
   ticketCreated: (response) =>
     @hasBeenCreated = true
