@@ -1,5 +1,7 @@
 # Suppport Tickets Manager
 
+[github](https://github.com/fedeaux/tickets-manager)
+
 ### Running Locally
 
 Assuming you already have ruby and bundler installed.
@@ -44,6 +46,8 @@ Every user is created with password 'defaultpassword', charles@ray.com and wonde
     $ rspec spec
 
 You may get warnings about missing system libraries. Since we are testing features with capybara-webkit you may be asked to install [QT](https://www.qt.io/).
+
+To view a coverage report, open coverage/index.html. (Created with simplecov gem)
 
 ### Assumptions
 
