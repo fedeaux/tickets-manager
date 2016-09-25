@@ -11,7 +11,7 @@ Assuming you already have ruby and bundler installed.
 
 Bundle should warn you about missing system packages, like mysql or QT, read the warns and follow the instructions.
 
-Rename the .env.example file to .env and edit it according to your local requirements, and run
+Rename the .env.example file to .env, edit it according to your local requirements, and run
 
      $ rake db:create && rake db:create RAILS_ENV=test
      $ rake db:migrate && rake db:migrate RAILS_ENV=test
@@ -20,25 +20,26 @@ To create you local databases. And then run
 
      $ rails server
 
-To start the server. And go to http://localhost:3000 to view the app.
+To start the server and go to http://localhost:3000 to view the app.
 
 You may want to start with some data, to do so, run
 
     $ rake db:seed
 
-It will create some users and some tickets. To know which users has been created, you can check via console.
+It will create some users and some tickets. To know which users have been created, you can check via console.
 
     $ rails console
 ```ruby
 > User.all
 ```
 
-Every user is created with password 'defaultpassword', charles@ray.com and wonder@steve.com as customers and vaughn@ray.com as an admin. You can create new users through http://localhost:3000/users/sign_up or by the console.
+Every user is created with password 'defaultpassword', charles@ray.com and wonder@steve.com are customers and vaughn@ray.com is an admin. You can create new users through http://localhost:3000/users/sign_up or by the console.
 
     $ rails console
 
 ```ruby
-> User.create email: 'someemail@example.com', password 'mypassword', password_confirmation: 'mypassword'
+> User.create email: 'someemail@example.com', password 'mypassword', password_confirmation: 'mypassword' # customer
+> User.create email: 'someemail@example.com', password 'mypassword', password_confirmation: 'mypassword', role: 'admin' # admin
 ```
 
 ### Running Tests
